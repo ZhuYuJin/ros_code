@@ -1,0 +1,8 @@
+prefix=/home/zhuyujin/ros/install
+
+Name: usb_cam
+Description: Description of usb_cam
+Version: 0.3.4
+Cflags: -I/home/zhuyujin/ros/install/include
+Libs: -L/home/zhuyujin/ros/install/lib -lusb_cam
+Requires: 

@@ -1,0 +1,8 @@
+prefix=/home/zhuyujin/ros/install
+
+Name: car_move
+Description: Description of car_move
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/zhuyujin/ros/install/lib 
+Requires: 

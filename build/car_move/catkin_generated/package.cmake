@@ -1,0 +1,7 @@
+set(_CATKIN_CURRENT_PACKAGE "car_move")
+set(car_move_MAINTAINER "zhuyujin <zhuyujin@todo.todo>")
+set(car_move_DEPRECATED "")
+set(car_move_VERSION "0.0.0")
+set(car_move_BUILD_DEPENDS )
+set(car_move_RUN_DEPENDS )
+set(car_move_BUILDTOOL_DEPENDS "catkin")
