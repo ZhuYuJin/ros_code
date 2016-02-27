@@ -6,6 +6,8 @@
 
 #IncludeRegexTransform: 
 
+/home/zhuyujin/ros/src/car_move/RobustMatcher.h
+
 /home/zhuyujin/ros/src/car_move/image_match.cpp
 ros/ros.h
 -
@@ -19,6 +21,18 @@ opencv2/imgproc/imgproc.hpp
 -
 opencv2/highgui/highgui.hpp
 -
+opencv2/nonfree/nonfree.hpp
+-
+opencv2/legacy/legacy.hpp
+-
+opencv2/opencv.hpp
+-
+vector
+-
+iostream
+-
+RobustMatcher.h
+/home/zhuyujin/ros/src/car_move/RobustMatcher.h
 
 /opt/ros/indigo/include/XmlRpcDecl.h
 ros/macros.h

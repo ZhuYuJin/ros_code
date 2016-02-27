@@ -11,6 +11,7 @@ find_package(catkin REQUIRED
 	std_msgs
 	image_transport)
 
+
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
 
@@ -131,6 +132,7 @@ add_executable(image_match image_match.cpp)
 ## Specify libraries to link a library or executable target against
 target_link_libraries(image_match
 	${catkin_LIBRARIES}
+	/usr/lib/x86_64-linux-gnu/libopencv_nonfree.so
 )
 
 #############

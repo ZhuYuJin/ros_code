@@ -123,6 +123,7 @@ image_match_EXTERNAL_OBJECTS =
 /home/zhuyujin/ros/devel/lib/car_move/image_match: /usr/lib/x86_64-linux-gnu/libboost_thread.so
 /home/zhuyujin/ros/devel/lib/car_move/image_match: /usr/lib/x86_64-linux-gnu/libpthread.so
 /home/zhuyujin/ros/devel/lib/car_move/image_match: /usr/lib/x86_64-linux-gnu/libconsole_bridge.so
+/home/zhuyujin/ros/devel/lib/car_move/image_match: /usr/lib/x86_64-linux-gnu/libopencv_nonfree.so
 /home/zhuyujin/ros/devel/lib/car_move/image_match: car_move/CMakeFiles/image_match.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable /home/zhuyujin/ros/devel/lib/car_move/image_match"
 	cd /home/zhuyujin/ros/build/car_move && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/image_match.dir/link.txt --verbose=$(VERBOSE)
