@@ -261,7 +261,7 @@ gtest/preinstall:
 gtest/CMakeFiles/gtest.dir/all:
 	$(MAKE) -f gtest/CMakeFiles/gtest.dir/build.make gtest/CMakeFiles/gtest.dir/depend
 	$(MAKE) -f gtest/CMakeFiles/gtest.dir/build.make gtest/CMakeFiles/gtest.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/zhuyujin/ros/build/CMakeFiles  1
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/zhuyujin/ros/build/CMakeFiles  2
 	@echo "Built target gtest"
 .PHONY : gtest/CMakeFiles/gtest.dir/all
 
@@ -292,7 +292,7 @@ clean: gtest/CMakeFiles/gtest.dir/clean
 gtest/CMakeFiles/gtest_main.dir/all: gtest/CMakeFiles/gtest.dir/all
 	$(MAKE) -f gtest/CMakeFiles/gtest_main.dir/build.make gtest/CMakeFiles/gtest_main.dir/depend
 	$(MAKE) -f gtest/CMakeFiles/gtest_main.dir/build.make gtest/CMakeFiles/gtest_main.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/zhuyujin/ros/build/CMakeFiles  2
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/zhuyujin/ros/build/CMakeFiles  3
 	@echo "Built target gtest_main"
 .PHONY : gtest/CMakeFiles/gtest_main.dir/all
 
@@ -320,10 +320,13 @@ clean: gtest/CMakeFiles/gtest_main.dir/clean
 # Directory level rules for directory car_move
 
 # Convenience name for "all" pass in the directory.
+car_move/all: car_move/CMakeFiles/basic_move.dir/all
 car_move/all: car_move/CMakeFiles/image_match.dir/all
+car_move/all: car_move/CMakeFiles/test_move.dir/all
 .PHONY : car_move/all
 
 # Convenience name for "clean" pass in the directory.
+car_move/clean: car_move/CMakeFiles/basic_move.dir/clean
 car_move/clean: car_move/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/clean
 car_move/clean: car_move/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/clean
 car_move/clean: car_move/CMakeFiles/geometry_msgs_generate_messages_py.dir/clean
@@ -340,11 +343,47 @@ car_move/clean: car_move/CMakeFiles/sensor_msgs_generate_messages_py.dir/clean
 car_move/clean: car_move/CMakeFiles/std_msgs_generate_messages_cpp.dir/clean
 car_move/clean: car_move/CMakeFiles/std_msgs_generate_messages_lisp.dir/clean
 car_move/clean: car_move/CMakeFiles/std_msgs_generate_messages_py.dir/clean
+car_move/clean: car_move/CMakeFiles/test_move.dir/clean
 .PHONY : car_move/clean
 
 # Convenience name for "preinstall" pass in the directory.
 car_move/preinstall:
 .PHONY : car_move/preinstall
+
+#=============================================================================
+# Target rules for target car_move/CMakeFiles/basic_move.dir
+
+# All Build rule for target.
+car_move/CMakeFiles/basic_move.dir/all:
+	$(MAKE) -f car_move/CMakeFiles/basic_move.dir/build.make car_move/CMakeFiles/basic_move.dir/depend
+	$(MAKE) -f car_move/CMakeFiles/basic_move.dir/build.make car_move/CMakeFiles/basic_move.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/zhuyujin/ros/build/CMakeFiles  1
+	@echo "Built target basic_move"
+.PHONY : car_move/CMakeFiles/basic_move.dir/all
+
+# Include target in all.
+all: car_move/CMakeFiles/basic_move.dir/all
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+car_move/CMakeFiles/basic_move.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zhuyujin/ros/build/CMakeFiles 1
+	$(MAKE) -f CMakeFiles/Makefile2 car_move/CMakeFiles/basic_move.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zhuyujin/ros/build/CMakeFiles 0
+.PHONY : car_move/CMakeFiles/basic_move.dir/rule
+
+# Convenience name for target.
+basic_move: car_move/CMakeFiles/basic_move.dir/rule
+.PHONY : basic_move
+
+# clean rule for target.
+car_move/CMakeFiles/basic_move.dir/clean:
+	$(MAKE) -f car_move/CMakeFiles/basic_move.dir/build.make car_move/CMakeFiles/basic_move.dir/clean
+.PHONY : car_move/CMakeFiles/basic_move.dir/clean
+
+# clean rule for target.
+clean: car_move/CMakeFiles/basic_move.dir/clean
+.PHONY : clean
 
 #=============================================================================
 # Target rules for target car_move/CMakeFiles/geometry_msgs_generate_messages_cpp.dir
@@ -446,7 +485,7 @@ clean: car_move/CMakeFiles/geometry_msgs_generate_messages_py.dir/clean
 car_move/CMakeFiles/image_match.dir/all:
 	$(MAKE) -f car_move/CMakeFiles/image_match.dir/build.make car_move/CMakeFiles/image_match.dir/depend
 	$(MAKE) -f car_move/CMakeFiles/image_match.dir/build.make car_move/CMakeFiles/image_match.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/zhuyujin/ros/build/CMakeFiles  3
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/zhuyujin/ros/build/CMakeFiles  4
 	@echo "Built target image_match"
 .PHONY : car_move/CMakeFiles/image_match.dir/all
 
@@ -847,6 +886,41 @@ clean: car_move/CMakeFiles/std_msgs_generate_messages_py.dir/clean
 .PHONY : clean
 
 #=============================================================================
+# Target rules for target car_move/CMakeFiles/test_move.dir
+
+# All Build rule for target.
+car_move/CMakeFiles/test_move.dir/all:
+	$(MAKE) -f car_move/CMakeFiles/test_move.dir/build.make car_move/CMakeFiles/test_move.dir/depend
+	$(MAKE) -f car_move/CMakeFiles/test_move.dir/build.make car_move/CMakeFiles/test_move.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/zhuyujin/ros/build/CMakeFiles  5
+	@echo "Built target test_move"
+.PHONY : car_move/CMakeFiles/test_move.dir/all
+
+# Include target in all.
+all: car_move/CMakeFiles/test_move.dir/all
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+car_move/CMakeFiles/test_move.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zhuyujin/ros/build/CMakeFiles 1
+	$(MAKE) -f CMakeFiles/Makefile2 car_move/CMakeFiles/test_move.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zhuyujin/ros/build/CMakeFiles 0
+.PHONY : car_move/CMakeFiles/test_move.dir/rule
+
+# Convenience name for target.
+test_move: car_move/CMakeFiles/test_move.dir/rule
+.PHONY : test_move
+
+# clean rule for target.
+car_move/CMakeFiles/test_move.dir/clean:
+	$(MAKE) -f car_move/CMakeFiles/test_move.dir/build.make car_move/CMakeFiles/test_move.dir/clean
+.PHONY : car_move/CMakeFiles/test_move.dir/clean
+
+# clean rule for target.
+clean: car_move/CMakeFiles/test_move.dir/clean
+.PHONY : clean
+
+#=============================================================================
 # Directory level rules for directory usb_cam
 
 # Convenience name for "all" pass in the directory.
@@ -966,7 +1040,7 @@ clean: usb_cam/CMakeFiles/std_srvs_generate_messages_py.dir/clean
 usb_cam/CMakeFiles/usb_cam.dir/all:
 	$(MAKE) -f usb_cam/CMakeFiles/usb_cam.dir/build.make usb_cam/CMakeFiles/usb_cam.dir/depend
 	$(MAKE) -f usb_cam/CMakeFiles/usb_cam.dir/build.make usb_cam/CMakeFiles/usb_cam.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/zhuyujin/ros/build/CMakeFiles  4
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/zhuyujin/ros/build/CMakeFiles  6
 	@echo "Built target usb_cam"
 .PHONY : usb_cam/CMakeFiles/usb_cam.dir/all
 
@@ -1001,7 +1075,7 @@ clean: usb_cam/CMakeFiles/usb_cam.dir/clean
 usb_cam/CMakeFiles/usb_cam_node.dir/all: usb_cam/CMakeFiles/usb_cam.dir/all
 	$(MAKE) -f usb_cam/CMakeFiles/usb_cam_node.dir/build.make usb_cam/CMakeFiles/usb_cam_node.dir/depend
 	$(MAKE) -f usb_cam/CMakeFiles/usb_cam_node.dir/build.make usb_cam/CMakeFiles/usb_cam_node.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/zhuyujin/ros/build/CMakeFiles  5
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/zhuyujin/ros/build/CMakeFiles  7
 	@echo "Built target usb_cam_node"
 .PHONY : usb_cam/CMakeFiles/usb_cam_node.dir/all
 

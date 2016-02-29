@@ -234,7 +234,9 @@ cv::Mat RobustMatcher:: match(cv::Mat& image1,
   detector->detect(image1,keypoints1);
   detector->detect(image2,keypoints2);
   // 1b. Extraction of the ORB descriptors
-  cv::Mat descriptors1, descriptors2;
+  
+  cv::Mat descriptors1;
+  cv::Mat descriptors2;
   extractor->compute(image1,keypoints1,descriptors1);
   extractor->compute(image2,keypoints2,descriptors2);
 
@@ -247,6 +249,7 @@ cv::Mat RobustMatcher:: match(cv::Mat& image1,
   matcher->knnMatch(descriptors1,descriptors2,
     matches1, // vector of matches (up to 2 per entry)
     2);        // return 2 nearest neighbours
+
   // from image 2 to image 1
   // based on k nearest neighbours (with k=2)
   std::vector<std::vector<cv::DMatch> > matches2;
@@ -266,6 +269,7 @@ cv::Mat RobustMatcher:: match(cv::Mat& image1,
   symmetryTest(matches1,matches2,symMatches);
 
   //=========================================测试代码
+  
   cv::Mat img_matches;
   cv::drawMatches( image1, keypoints1, image2, keypoints2, 
     symMatches, img_matches, cv::Scalar::all(-1), cv::Scalar::all(-1), 
@@ -311,6 +315,7 @@ cv::Mat RobustMatcher:: match(cv::Mat& image1,
   }
   imshow("Test",img_matches);
   cv::waitKey(3);
+  // cvWaitKey(0);
   //=========================================测试代码
 
 

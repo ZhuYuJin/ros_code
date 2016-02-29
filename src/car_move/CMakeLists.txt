@@ -124,6 +124,8 @@ include_directories(include ${catkin_INCLUDE_DIRS})
 
 ## Declare a C++ executable
 add_executable(image_match image_match.cpp)
+add_executable(basic_move basic_move.cpp)
+add_executable(test_move test_move.cpp)
 
 ## Add cmake target dependencies of the executable
 ## same as for the library above
@@ -132,8 +134,12 @@ add_executable(image_match image_match.cpp)
 ## Specify libraries to link a library or executable target against
 target_link_libraries(image_match
 	${catkin_LIBRARIES}
-	/usr/lib/x86_64-linux-gnu/libopencv_nonfree.so
+	opencv_nonfree
 )
+target_link_libraries(basic_move ${catkin_LIBRARIES}
+	wiringPi
+)
+target_link_libraries(test_move ${catkin_LIBRARIES})
 
 #############
 ## Install ##

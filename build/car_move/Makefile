@@ -150,6 +150,20 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+car_move/CMakeFiles/basic_move.dir/rule:
+	cd /home/zhuyujin/ros/build && $(MAKE) -f CMakeFiles/Makefile2 car_move/CMakeFiles/basic_move.dir/rule
+.PHONY : car_move/CMakeFiles/basic_move.dir/rule
+
+# Convenience name for target.
+basic_move: car_move/CMakeFiles/basic_move.dir/rule
+.PHONY : basic_move
+
+# fast build rule for target.
+basic_move/fast:
+	cd /home/zhuyujin/ros/build && $(MAKE) -f car_move/CMakeFiles/basic_move.dir/build.make car_move/CMakeFiles/basic_move.dir/build
+.PHONY : basic_move/fast
+
+# Convenience name for target.
 car_move/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule:
 	cd /home/zhuyujin/ros/build && $(MAKE) -f CMakeFiles/Makefile2 car_move/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
 .PHONY : car_move/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
@@ -373,6 +387,44 @@ std_msgs_generate_messages_py/fast:
 	cd /home/zhuyujin/ros/build && $(MAKE) -f car_move/CMakeFiles/std_msgs_generate_messages_py.dir/build.make car_move/CMakeFiles/std_msgs_generate_messages_py.dir/build
 .PHONY : std_msgs_generate_messages_py/fast
 
+# Convenience name for target.
+car_move/CMakeFiles/test_move.dir/rule:
+	cd /home/zhuyujin/ros/build && $(MAKE) -f CMakeFiles/Makefile2 car_move/CMakeFiles/test_move.dir/rule
+.PHONY : car_move/CMakeFiles/test_move.dir/rule
+
+# Convenience name for target.
+test_move: car_move/CMakeFiles/test_move.dir/rule
+.PHONY : test_move
+
+# fast build rule for target.
+test_move/fast:
+	cd /home/zhuyujin/ros/build && $(MAKE) -f car_move/CMakeFiles/test_move.dir/build.make car_move/CMakeFiles/test_move.dir/build
+.PHONY : test_move/fast
+
+basic_move.o: basic_move.cpp.o
+.PHONY : basic_move.o
+
+# target to build an object file
+basic_move.cpp.o:
+	cd /home/zhuyujin/ros/build && $(MAKE) -f car_move/CMakeFiles/basic_move.dir/build.make car_move/CMakeFiles/basic_move.dir/basic_move.cpp.o
+.PHONY : basic_move.cpp.o
+
+basic_move.i: basic_move.cpp.i
+.PHONY : basic_move.i
+
+# target to preprocess a source file
+basic_move.cpp.i:
+	cd /home/zhuyujin/ros/build && $(MAKE) -f car_move/CMakeFiles/basic_move.dir/build.make car_move/CMakeFiles/basic_move.dir/basic_move.cpp.i
+.PHONY : basic_move.cpp.i
+
+basic_move.s: basic_move.cpp.s
+.PHONY : basic_move.s
+
+# target to generate assembly for a file
+basic_move.cpp.s:
+	cd /home/zhuyujin/ros/build && $(MAKE) -f car_move/CMakeFiles/basic_move.dir/build.make car_move/CMakeFiles/basic_move.dir/basic_move.cpp.s
+.PHONY : basic_move.cpp.s
+
 image_match.o: image_match.cpp.o
 .PHONY : image_match.o
 
@@ -397,12 +449,37 @@ image_match.cpp.s:
 	cd /home/zhuyujin/ros/build && $(MAKE) -f car_move/CMakeFiles/image_match.dir/build.make car_move/CMakeFiles/image_match.dir/image_match.cpp.s
 .PHONY : image_match.cpp.s
 
+test_move.o: test_move.cpp.o
+.PHONY : test_move.o
+
+# target to build an object file
+test_move.cpp.o:
+	cd /home/zhuyujin/ros/build && $(MAKE) -f car_move/CMakeFiles/test_move.dir/build.make car_move/CMakeFiles/test_move.dir/test_move.cpp.o
+.PHONY : test_move.cpp.o
+
+test_move.i: test_move.cpp.i
+.PHONY : test_move.i
+
+# target to preprocess a source file
+test_move.cpp.i:
+	cd /home/zhuyujin/ros/build && $(MAKE) -f car_move/CMakeFiles/test_move.dir/build.make car_move/CMakeFiles/test_move.dir/test_move.cpp.i
+.PHONY : test_move.cpp.i
+
+test_move.s: test_move.cpp.s
+.PHONY : test_move.s
+
+# target to generate assembly for a file
+test_move.cpp.s:
+	cd /home/zhuyujin/ros/build && $(MAKE) -f car_move/CMakeFiles/test_move.dir/build.make car_move/CMakeFiles/test_move.dir/test_move.cpp.s
+.PHONY : test_move.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... basic_move"
 	@echo "... edit_cache"
 	@echo "... geometry_msgs_generate_messages_cpp"
 	@echo "... geometry_msgs_generate_messages_lisp"
@@ -426,9 +503,16 @@ help:
 	@echo "... std_msgs_generate_messages_lisp"
 	@echo "... std_msgs_generate_messages_py"
 	@echo "... test"
+	@echo "... test_move"
+	@echo "... basic_move.o"
+	@echo "... basic_move.i"
+	@echo "... basic_move.s"
 	@echo "... image_match.o"
 	@echo "... image_match.i"
 	@echo "... image_match.s"
+	@echo "... test_move.o"
+	@echo "... test_move.i"
+	@echo "... test_move.s"
 .PHONY : help
 
 

@@ -360,6 +360,9 @@ usb_cam_LIB_DEPENDS:STATIC=general;avcodec;general;swscale;general;/opt/ros/indi
 //Value Computed by CMake
 usb_cam_SOURCE_DIR:STATIC=/home/zhuyujin/ros/src/usb_cam
 
+//The directory containing a CMake configuration file for wiringPi.
+wiringPi_DIR:PATH=wiringPi_DIR-NOTFOUND
+
 //The directory containing a CMake configuration file for xmlrpcpp.
 xmlrpcpp_DIR:PATH=/opt/ros/indigo/share/xmlrpcpp/cmake
 

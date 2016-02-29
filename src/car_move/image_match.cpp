@@ -69,6 +69,17 @@ public:
 
   void imageDivMatch(const sensor_msgs::ImageConstPtr& msg)
   {
+    cv_bridge::CvImagePtr cv_ptr;
+    try
+    {
+      cv_ptr = cv_bridge::toCvCopy(msg, sensor_msgs::image_encodings::BGR8);
+    }
+    catch (cv_bridge::Exception& e)
+    {
+      ROS_ERROR("cv_bridge exception: %s", e.what());
+      return;
+    }
+
     int numKeyPoints = 1500;
 
     //Instantiate robust matcher
@@ -96,12 +107,13 @@ public:
 
     std::vector<cv::DMatch>  matches;
 
-    img1 = cv::imread("/home/zhuyujin/Downloads/main.jpg", CV_LOAD_IMAGE_GRAYSCALE);
-    /*img2 = cv::imread("C:\\temp\\PyramidPatternTest.bmp", CV_LOAD_IMAGE_GRAYSCALE);*/
-    //img2 = cv::imread("C:\\temp\\test1.jpg", CV_LOAD_IMAGE_GRAYSCALE);
-    img2 = cv::imread("/home/zhuyujin/Downloads/main.jpg", CV_LOAD_IMAGE_GRAYSCALE);
+    // img1 = cv_ptr->image;
+    // cvtColor(img1, img1, CV_BGR2GRAY);  
+    img1 = cv::imread("/home/zhuyujin/Downloads/main2.jpg", CV_LOAD_IMAGE_GRAYSCALE);
+    img2 = cv::imread("/home/zhuyujin/Downloads/main4.jpg", CV_LOAD_IMAGE_GRAYSCALE);
 
     rmatcher.match(img1, img2, matches, img1_keypoints, img2_keypoints);
+    cv::waitKey(3);
   }
 
 };
