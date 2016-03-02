@@ -30,9 +30,9 @@ class RaspiRobot
 		static RaspiRobot *getInstance();
 		void stop();
 		void forwardBySpeed(int speed);
-		void forwardByTimeAndSpeed(float sec, int speed = 100);
+		void forwardByTimeAndSpeed(float sec, int speed);
 		void reverseBySpeed(int speed);
-		void reverseByTimeAndSpeed(float sec, int speed = 100);
+		void reverseByTimeAndSpeed(float sec, int speed);
 };
 
 RaspiRobot *RaspiRobot::getInstance()
@@ -65,7 +65,7 @@ bool RaspiRobot::init()
 	return true;
 }
 
-void setMotors(uchar leftIn, uchar leftOut, uchar rightIn, uchar rightOut, uchar leftEn, uchar rightEn)
+void RaspiRobot::setMotors(uchar leftIn, uchar leftOut, uchar rightIn, uchar rightOut, uchar leftEn, uchar rightEn)
 {
 	digitalWrite(LEFT_IN_PIN, leftIn);
 	digitalWrite(LEFT_OUT_PIN, leftOut);
@@ -80,12 +80,12 @@ void RaspiRobot::stop()
 	setMotors(0,0,0,0,0,0);
 }
 
-void forwardBySpeed(int speed)
+void RaspiRobot::forwardBySpeed(int speed)
 {
 	setMotors(1,0,1,0,speed,speed);
 }
 
-void forwardByTimeAndSpeed(float sec, int speed = 100)
+void RaspiRobot::forwardByTimeAndSpeed(float sec, int speed = 100)
 {
 	setMotors(1,0,1,0,speed,speed);
 	if(sec>0)
@@ -95,12 +95,12 @@ void forwardByTimeAndSpeed(float sec, int speed = 100)
 	}
 }
 
-void reverseBySpeed(int speed)
+void RaspiRobot::reverseBySpeed(int speed)
 {
 	setMotors(0,1,0,1,speed,speed);
 }
 
-void reverseByTimeAndSpeed(float sec, int speed = 100)
+void RaspiRobot::reverseByTimeAndSpeed(float sec, int speed = 100)
 {
 	setMotors(0,1,0,1,speed,speed);
 	if(sec>0)
