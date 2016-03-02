@@ -35,6 +35,18 @@ class RaspiRobot
 		void reverseByTimeAndSpeed(float sec, int speed = 100);
 };
 
+RaspiRobot *RaspiRobot::getInstance()
+{
+	if(instance==NULL)
+		instance=new RaspiRobot();
+	return instance;
+}
+
+RaspiRobot::RaspiRobot()
+{
+	
+}
+
 RaspiRobot *RaspiRobot::instance=NULL;
 
 bool RaspiRobot::init()
