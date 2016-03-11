@@ -6,17 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/zhuyujin/ros/src/car_move/RobotController.h
-stdio.h
--
-wiringPi.h
--
-sys/time.h
--
-
 /home/zhuyujin/ros/src/car_move/basic_move.cpp
-RobotController.h
-/home/zhuyujin/ros/src/car_move/RobotController.h
 wiringPi.h
 -
 ros/ros.h

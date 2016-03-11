@@ -16,6 +16,7 @@ using namespace std;
 
 static const std::string OPENCV_WINDOW = "Monitor";
 static const std::string RESULT_WINDOW = "Result";
+static const std::string TEST_WINDOW = "Test";
  
 class ImageConverter
 {
@@ -29,17 +30,19 @@ public:
     : it_(nh_)
   {
     // Subscrive to input video feed and publish output video feed
-    image_sub_ = it_.subscribe("/usb_cam/image_raw", 1, &ImageConverter::imageDivMatch, this);
+    image_sub_ = it_.subscribe("/usb_cam/image_raw", 1, &ImageConverter::imageFeatureMatch, this);
     image_pub_ = it_.advertise("/image_converter/output_video", 1);
 
     cv::namedWindow(OPENCV_WINDOW);
     cv::namedWindow(RESULT_WINDOW);
+    cv::namedWindow(TEST_WINDOW);
   }
 
   ~ImageConverter()
   {
     cv::destroyWindow(OPENCV_WINDOW);
     cv::destroyWindow(RESULT_WINDOW);
+    cv::destroyWindow(TEST_WINDOW);
   }
 
   void imageCb(const sensor_msgs::ImageConstPtr& msg)
@@ -114,6 +117,123 @@ public:
 
     rmatcher.match(img1, img2, matches, img1_keypoints, img2_keypoints);
     cv::waitKey(3);
+  }
+
+  void imageFeatureMatch(const sensor_msgs::ImageConstPtr& msg){
+    cv_bridge::CvImagePtr cv_ptr;
+    try
+    {
+      cv_ptr = cv_bridge::toCvCopy(msg, sensor_msgs::image_encodings::BGR8);
+    }
+    catch (cv_bridge::Exception& e)
+    {
+      ROS_ERROR("cv_bridge exception: %s", e.what());
+      return;
+    }
+
+    cv::Mat origin_img, cam_img;
+    origin_img = cv::imread("/home/zhuyujin/Downloads/main.jpg", CV_8U);
+    cvtColor(cv_ptr->image, cam_img, CV_BGR2GRAY);  
+
+// cv::imshow(TEST_WINDOW, cv_ptr->image);
+// cv::waitKey(3);
+
+    cv::Mat origin_img_feature, cam_img_feature;
+    origin_img_feature = featureDetector(origin_img);
+    cam_img_feature = featureDetector(cam_img);
+
+    int numKeyPoints = 1500;
+
+    //Instantiate robust matcher
+
+    RobustMatcher rmatcher;
+
+    //instantiate detector, extractor, matcher
+
+    cv::Ptr<cv::FeatureDetector> detector = new cv::OrbFeatureDetector(numKeyPoints);
+    cv::Ptr<cv::DescriptorExtractor> extractor = new cv::OrbDescriptorExtractor;
+    cv::Ptr<cv::DescriptorMatcher> matcher = new cv::BruteForceMatcher<cv::HammingLUT>;
+
+    rmatcher.setFeatureDetector(detector);
+    rmatcher.setDescriptorExtractor(extractor);
+    rmatcher.setDescriptorMatcher(matcher);
+
+    //Load input image detect keypoints
+
+    cv::Mat img1;
+    std::vector<cv::KeyPoint> img1_keypoints;
+    cv::Mat img1_descriptors;
+    cv::Mat img2;
+    std::vector<cv::KeyPoint> img2_keypoints;
+    cv::Mat img2_descriptors;
+
+    std::vector<cv::DMatch>  matches;
+
+    // img1 = cv_ptr->image;
+    // cvtColor(img1, img1, CV_BGR2GRAY);  
+    img1 = origin_img_feature;
+    img2 = cam_img_feature;
+
+    rmatcher.match(img1, img2, matches, img1_keypoints, img2_keypoints);
+    cv::waitKey(3);
+
+    // Update GUI Window
+    // cv::imshow(OPENCV_WINDOW, origin_img_feature);
+    // cv::imshow(RESULT_WINDOW, cam_img_feature);
+    // cvWaitKey(0);
+    
+    // Output modified video stream
+    image_pub_.publish(cv_ptr->toImageMsg());
+  }
+
+  cv::Mat featureDetector(cv::Mat img_8u){
+    cv::Mat copy = img_8u;
+
+    cv::Mat cross(5, 5, CV_8U);
+    cv::Mat diamond(5, 5, CV_8U, cv::Scalar(1));
+    cv::Mat square(5, 5, CV_8U, cv::Scalar(1));
+    cv::Mat x(5, 5, CV_8U, cv::Scalar(0));
+
+    for (int i = 0; i < 5; i++)
+    {
+      cross.at<uchar>(2, i) = 1;
+      cross.at<uchar>(i, 2) = 1;
+    }
+
+    diamond.at<uchar>(0, 0) = 0;
+    diamond.at<uchar>(0, 1) = 0;
+    diamond.at<uchar>(1, 0) = 0;
+    diamond.at<uchar>(4, 4) = 0;
+    diamond.at<uchar>(3, 4) = 0;
+    diamond.at<uchar>(4, 3) = 0;
+    diamond.at<uchar>(4, 0) = 0;
+    diamond.at<uchar>(4, 1) = 0;
+    diamond.at<uchar>(3, 0) = 0;
+    diamond.at<uchar>(0, 4) = 0;
+    diamond.at<uchar>(4, 1) = 0;
+    diamond.at<uchar>(3, 0) = 0;
+    diamond.at<uchar>(0, 4) = 0;
+    diamond.at<uchar>(0, 3) = 0;
+    diamond.at<uchar>(1, 4) = 0;
+
+    for (int i = 0; i < 5; i++)
+    {
+      x.at<uchar>(i, i) = 1;
+      x.at<uchar>(4 - i, i) = 1;
+    }
+
+    cv::Mat result, result2;
+    cv::dilate(copy, result, cross);
+    cv::erode(result, result, diamond);
+    cv::dilate(copy, result2, x);
+    cv::erode(result2, result2, square);
+
+    cv::absdiff(result2, result, result);
+
+    //阈值化
+    cv::threshold(result, result, 50, 255, cv::THRESH_BINARY);
+
+    return result;
   }
 
 };
