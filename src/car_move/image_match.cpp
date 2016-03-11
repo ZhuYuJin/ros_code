@@ -30,7 +30,7 @@ public:
     : it_(nh_)
   {
     // Subscrive to input video feed and publish output video feed
-    image_sub_ = it_.subscribe("/usb_cam/image_raw", 1, &ImageConverter::imageFeatureMatch, this);
+    image_sub_ = it_.subscribe("/usb_cam/image_raw", 1, &ImageConverter::imageFeatureMatch2, this);
     image_pub_ = it_.advertise("/image_converter/output_video", 1);
 
     cv::namedWindow(OPENCV_WINDOW);
@@ -131,12 +131,16 @@ public:
       return;
     }
 
-    cv::Mat origin_img, cam_img;
+    cv::Mat origin_img, cam_img, cam_img_8u;
     origin_img = cv::imread("/home/zhuyujin/Downloads/main.jpg", CV_8U);
     cvtColor(cv_ptr->image, cam_img, CV_BGR2GRAY);  
 
-// cv::imshow(TEST_WINDOW, cv_ptr->image);
+// cv::imshow(TEST_WINDOW, cam_img);
 // cv::waitKey(3);
+
+    // double minVal, maxVal;
+    // minMaxLoc(cam_img_32f, &minVal, &maxVal);
+    // cam_img_32f.convertTo(cam_img_8u, CV_8U, 255.0/(maxVal - minVal), -minVal);
 
     cv::Mat origin_img_feature, cam_img_feature;
     origin_img_feature = featureDetector(origin_img);
@@ -177,13 +181,73 @@ public:
     rmatcher.match(img1, img2, matches, img1_keypoints, img2_keypoints);
     cv::waitKey(3);
 
-    // Update GUI Window
-    // cv::imshow(OPENCV_WINDOW, origin_img_feature);
-    // cv::imshow(RESULT_WINDOW, cam_img_feature);
-    // cvWaitKey(0);
+    // // Update GUI Window
+    // cv::imshow(OPENCV_WINDOW, origin_img);
+    // cv::imshow(RESULT_WINDOW, cam_img);
+    // cv::waitKey(3);
     
     // Output modified video stream
     image_pub_.publish(cv_ptr->toImageMsg());
+  }
+
+  void imageFeatureMatch2(const sensor_msgs::ImageConstPtr& msg){
+    cv_bridge::CvImagePtr cv_ptr;
+    try
+    {
+      cv_ptr = cv_bridge::toCvCopy(msg, sensor_msgs::image_encodings::BGR8);
+    }
+    catch (cv_bridge::Exception& e)
+    {
+      ROS_ERROR("cv_bridge exception: %s", e.what());
+      return;
+    }
+
+    cv::Mat origin_img, cam_img, cam_img_8u;
+    origin_img = cv::imread("/home/zhuyujin/Downloads/main.jpg", CV_8U);
+    cvtColor(cv_ptr->image, cam_img, CV_BGR2GRAY);  
+
+    cv::Mat origin_img_feature, cam_img_feature;
+    origin_img_feature = featureDetector(origin_img);
+    cam_img_feature = featureDetector(cam_img);
+
+    // // Update GUI Window
+    // cv::imshow(OPENCV_WINDOW, origin_img_feature);
+    // cv::imshow(RESULT_WINDOW, cam_img_feature);
+    // cv::waitKey(3);
+
+    //Method2
+    cv::Mat image1, image2;
+    image1 = origin_img_feature;
+    image2 = cam_img_feature;
+    // image1 = cv::imread("/home/zhuyujin/Downloads/main.jpg", CV_LOAD_IMAGE_GRAYSCALE);
+    // image2 = cv::imread("/home/zhuyujin/Downloads/main2.jpg", CV_LOAD_IMAGE_GRAYSCALE);
+
+    // 检测surf特征点
+    vector<cv::KeyPoint> keypoints1,keypoints2;     
+    cv::SurfFeatureDetector detector(400);
+    detector.detect(image1, keypoints1);
+    detector.detect(image2, keypoints2);
+    
+    // 描述surf特征点
+    cv::SurfDescriptorExtractor surfDesc;
+    cv::Mat descriptros1,descriptros2;
+    surfDesc.compute(image1,keypoints1,descriptros1);
+    surfDesc.compute(image2,keypoints2,descriptros2);
+    
+    // 计算匹配点数
+    cv::BruteForceMatcher< cv::L2<float> >matcher;
+    vector<cv::DMatch> matches;
+    matcher.match(descriptros1,descriptros2,matches);
+    // std::nth_element(matches.begin(),matches.begin()+24,matches.end());
+    // matches.erase(matches.begin()+25,matches.end());
+    
+    // 画出匹配图
+    cv::Mat imageMatches;
+    cv::drawMatches(image1,keypoints1,image2,keypoints2,matches,
+        imageMatches,cv::Scalar(255,0,0));
+
+    cv::imshow(RESULT_WINDOW, imageMatches);
+    cv::waitKey(3);
   }
 
   cv::Mat featureDetector(cv::Mat img_8u){
@@ -231,7 +295,7 @@ public:
     cv::absdiff(result2, result, result);
 
     //阈值化
-    cv::threshold(result, result, 50, 255, cv::THRESH_BINARY);
+    cv::threshold(result, result, 80, 255, cv::THRESH_BINARY);
 
     return result;
   }

@@ -245,6 +245,14 @@ cv::Mat RobustMatcher:: match(cv::Mat& image1,
   //cv::BruteForceMatcher<cv::L2<float>> matcher;
   // from image 1 to image 2
   // based on k nearest neighbours (with k=2)
+
+  /*
+   * check whether the error happens
+   * return a temporary null image
+   */
+  if(descriptors1.cols != descriptors2.cols)
+    return descriptors1;
+
   std::vector<std::vector<cv::DMatch> > matches1;
   matcher->knnMatch(descriptors1,descriptors2,
     matches1, // vector of matches (up to 2 per entry)
@@ -286,7 +294,7 @@ cv::Mat RobustMatcher:: match(cv::Mat& image1,
   std::vector<cv::Point2f> obj;
   std::vector<cv::Point2f> scene;
 
-  if(symMatches.size() > 0){
+  if(symMatches.size() >= 4){
     for( int i = 0; i < symMatches.size(); i++ )
     {
       //-- Get the keypoints from the good matches
