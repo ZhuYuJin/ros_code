@@ -30,7 +30,7 @@ public:
     : it_(nh_)
   {
     // Subscrive to input video feed and publish output video feed
-    image_sub_ = it_.subscribe("/usb_cam/image_raw", 1, &ImageConverter::imageFeatureMatch2, this);
+    image_sub_ = it_.subscribe("/usb_cam/image_raw", 1, &ImageConverter::imageFeatureMatch, this);
     image_pub_ = it_.advertise("/image_converter/output_video", 1);
 
     cv::namedWindow(OPENCV_WINDOW);
@@ -110,10 +110,9 @@ public:
 
     std::vector<cv::DMatch>  matches;
 
-    // img1 = cv_ptr->image;
-    // cvtColor(img1, img1, CV_BGR2GRAY);  
-    img1 = cv::imread("/home/zhuyujin/Downloads/main2.jpg", CV_LOAD_IMAGE_GRAYSCALE);
-    img2 = cv::imread("/home/zhuyujin/Downloads/main4.jpg", CV_LOAD_IMAGE_GRAYSCALE);
+    img1 = cv_ptr->image;
+    cvtColor(img1, img1, CV_BGR2GRAY);  
+    img2 = cv::imread("/home/zhuyujin/ros/img/match.jpg", CV_LOAD_IMAGE_GRAYSCALE);
 
     rmatcher.match(img1, img2, matches, img1_keypoints, img2_keypoints);
     cv::waitKey(3);
@@ -132,78 +131,7 @@ public:
     }
 
     cv::Mat origin_img, cam_img, cam_img_8u;
-    origin_img = cv::imread("/home/zhuyujin/Downloads/main.jpg", CV_8U);
-    cvtColor(cv_ptr->image, cam_img, CV_BGR2GRAY);  
-
-// cv::imshow(TEST_WINDOW, cam_img);
-// cv::waitKey(3);
-
-    // double minVal, maxVal;
-    // minMaxLoc(cam_img_32f, &minVal, &maxVal);
-    // cam_img_32f.convertTo(cam_img_8u, CV_8U, 255.0/(maxVal - minVal), -minVal);
-
-    cv::Mat origin_img_feature, cam_img_feature;
-    origin_img_feature = featureDetector(origin_img);
-    cam_img_feature = featureDetector(cam_img);
-
-    int numKeyPoints = 1500;
-
-    //Instantiate robust matcher
-
-    RobustMatcher rmatcher;
-
-    //instantiate detector, extractor, matcher
-
-    cv::Ptr<cv::FeatureDetector> detector = new cv::OrbFeatureDetector(numKeyPoints);
-    cv::Ptr<cv::DescriptorExtractor> extractor = new cv::OrbDescriptorExtractor;
-    cv::Ptr<cv::DescriptorMatcher> matcher = new cv::BruteForceMatcher<cv::HammingLUT>;
-
-    rmatcher.setFeatureDetector(detector);
-    rmatcher.setDescriptorExtractor(extractor);
-    rmatcher.setDescriptorMatcher(matcher);
-
-    //Load input image detect keypoints
-
-    cv::Mat img1;
-    std::vector<cv::KeyPoint> img1_keypoints;
-    cv::Mat img1_descriptors;
-    cv::Mat img2;
-    std::vector<cv::KeyPoint> img2_keypoints;
-    cv::Mat img2_descriptors;
-
-    std::vector<cv::DMatch>  matches;
-
-    // img1 = cv_ptr->image;
-    // cvtColor(img1, img1, CV_BGR2GRAY);  
-    img1 = origin_img_feature;
-    img2 = cam_img_feature;
-
-    rmatcher.match(img1, img2, matches, img1_keypoints, img2_keypoints);
-    cv::waitKey(3);
-
-    // // Update GUI Window
-    // cv::imshow(OPENCV_WINDOW, origin_img);
-    // cv::imshow(RESULT_WINDOW, cam_img);
-    // cv::waitKey(3);
-    
-    // Output modified video stream
-    image_pub_.publish(cv_ptr->toImageMsg());
-  }
-
-  void imageFeatureMatch2(const sensor_msgs::ImageConstPtr& msg){
-    cv_bridge::CvImagePtr cv_ptr;
-    try
-    {
-      cv_ptr = cv_bridge::toCvCopy(msg, sensor_msgs::image_encodings::BGR8);
-    }
-    catch (cv_bridge::Exception& e)
-    {
-      ROS_ERROR("cv_bridge exception: %s", e.what());
-      return;
-    }
-
-    cv::Mat origin_img, cam_img, cam_img_8u;
-    origin_img = cv::imread("/home/zhuyujin/Downloads/main.jpg", CV_8U);
+    origin_img = cv::imread("/home/zhuyujin/Downloads/match.jpg", CV_8U);
     cvtColor(cv_ptr->image, cam_img, CV_BGR2GRAY);  
 
     cv::Mat origin_img_feature, cam_img_feature;
@@ -217,19 +145,19 @@ public:
 
     //Method2
     cv::Mat image1, image2;
-    image1 = origin_img_feature;
-    image2 = cam_img_feature;
-    // image1 = cv::imread("/home/zhuyujin/Downloads/main.jpg", CV_LOAD_IMAGE_GRAYSCALE);
-    // image2 = cv::imread("/home/zhuyujin/Downloads/main2.jpg", CV_LOAD_IMAGE_GRAYSCALE);
+    image1 = origin_img;
+    image2 = cam_img;
+    // image1 = cv::imread("/home/zhuyujin/Downloads/main1.jpg", CV_LOAD_IMAGE_GRAYSCALE);
+    // image2 = cv::imread("/home/zhuyujin/Downloads/test2.jpg", CV_LOAD_IMAGE_GRAYSCALE);
 
     // 检测surf特征点
     vector<cv::KeyPoint> keypoints1,keypoints2;     
-    cv::SurfFeatureDetector detector(400);
+    cv::OrbFeatureDetector detector(400);
     detector.detect(image1, keypoints1);
     detector.detect(image2, keypoints2);
     
     // 描述surf特征点
-    cv::SurfDescriptorExtractor surfDesc;
+    cv::OrbDescriptorExtractor surfDesc;
     cv::Mat descriptros1,descriptros2;
     surfDesc.compute(image1,keypoints1,descriptros1);
     surfDesc.compute(image2,keypoints2,descriptros2);
