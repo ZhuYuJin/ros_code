@@ -261,7 +261,7 @@ gtest/preinstall:
 gtest/CMakeFiles/gtest.dir/all:
 	$(MAKE) -f gtest/CMakeFiles/gtest.dir/build.make gtest/CMakeFiles/gtest.dir/depend
 	$(MAKE) -f gtest/CMakeFiles/gtest.dir/build.make gtest/CMakeFiles/gtest.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/zhuyujin/ros/build/CMakeFiles  2
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/zhuyujin/ros/build/CMakeFiles  4
 	@echo "Built target gtest"
 .PHONY : gtest/CMakeFiles/gtest.dir/all
 
@@ -292,7 +292,7 @@ clean: gtest/CMakeFiles/gtest.dir/clean
 gtest/CMakeFiles/gtest_main.dir/all: gtest/CMakeFiles/gtest.dir/all
 	$(MAKE) -f gtest/CMakeFiles/gtest_main.dir/build.make gtest/CMakeFiles/gtest_main.dir/depend
 	$(MAKE) -f gtest/CMakeFiles/gtest_main.dir/build.make gtest/CMakeFiles/gtest_main.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/zhuyujin/ros/build/CMakeFiles  3
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/zhuyujin/ros/build/CMakeFiles  5
 	@echo "Built target gtest_main"
 .PHONY : gtest/CMakeFiles/gtest_main.dir/all
 
@@ -321,8 +321,10 @@ clean: gtest/CMakeFiles/gtest_main.dir/clean
 
 # Convenience name for "all" pass in the directory.
 car_move/all: car_move/CMakeFiles/basic_move.dir/all
+car_move/all: car_move/CMakeFiles/houghTest.dir/all
 car_move/all: car_move/CMakeFiles/image_match.dir/all
 car_move/all: car_move/CMakeFiles/test_move.dir/all
+car_move/all: car_move/CMakeFiles/zbarTest.dir/all
 .PHONY : car_move/all
 
 # Convenience name for "clean" pass in the directory.
@@ -330,6 +332,7 @@ car_move/clean: car_move/CMakeFiles/basic_move.dir/clean
 car_move/clean: car_move/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/clean
 car_move/clean: car_move/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/clean
 car_move/clean: car_move/CMakeFiles/geometry_msgs_generate_messages_py.dir/clean
+car_move/clean: car_move/CMakeFiles/houghTest.dir/clean
 car_move/clean: car_move/CMakeFiles/image_match.dir/clean
 car_move/clean: car_move/CMakeFiles/roscpp_generate_messages_cpp.dir/clean
 car_move/clean: car_move/CMakeFiles/roscpp_generate_messages_lisp.dir/clean
@@ -344,6 +347,7 @@ car_move/clean: car_move/CMakeFiles/std_msgs_generate_messages_cpp.dir/clean
 car_move/clean: car_move/CMakeFiles/std_msgs_generate_messages_lisp.dir/clean
 car_move/clean: car_move/CMakeFiles/std_msgs_generate_messages_py.dir/clean
 car_move/clean: car_move/CMakeFiles/test_move.dir/clean
+car_move/clean: car_move/CMakeFiles/zbarTest.dir/clean
 .PHONY : car_move/clean
 
 # Convenience name for "preinstall" pass in the directory.
@@ -357,7 +361,7 @@ car_move/preinstall:
 car_move/CMakeFiles/basic_move.dir/all:
 	$(MAKE) -f car_move/CMakeFiles/basic_move.dir/build.make car_move/CMakeFiles/basic_move.dir/depend
 	$(MAKE) -f car_move/CMakeFiles/basic_move.dir/build.make car_move/CMakeFiles/basic_move.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/zhuyujin/ros/build/CMakeFiles  1
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/zhuyujin/ros/build/CMakeFiles  3
 	@echo "Built target basic_move"
 .PHONY : car_move/CMakeFiles/basic_move.dir/all
 
@@ -479,13 +483,48 @@ clean: car_move/CMakeFiles/geometry_msgs_generate_messages_py.dir/clean
 .PHONY : clean
 
 #=============================================================================
+# Target rules for target car_move/CMakeFiles/houghTest.dir
+
+# All Build rule for target.
+car_move/CMakeFiles/houghTest.dir/all:
+	$(MAKE) -f car_move/CMakeFiles/houghTest.dir/build.make car_move/CMakeFiles/houghTest.dir/depend
+	$(MAKE) -f car_move/CMakeFiles/houghTest.dir/build.make car_move/CMakeFiles/houghTest.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/zhuyujin/ros/build/CMakeFiles  6
+	@echo "Built target houghTest"
+.PHONY : car_move/CMakeFiles/houghTest.dir/all
+
+# Include target in all.
+all: car_move/CMakeFiles/houghTest.dir/all
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+car_move/CMakeFiles/houghTest.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zhuyujin/ros/build/CMakeFiles 1
+	$(MAKE) -f CMakeFiles/Makefile2 car_move/CMakeFiles/houghTest.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zhuyujin/ros/build/CMakeFiles 0
+.PHONY : car_move/CMakeFiles/houghTest.dir/rule
+
+# Convenience name for target.
+houghTest: car_move/CMakeFiles/houghTest.dir/rule
+.PHONY : houghTest
+
+# clean rule for target.
+car_move/CMakeFiles/houghTest.dir/clean:
+	$(MAKE) -f car_move/CMakeFiles/houghTest.dir/build.make car_move/CMakeFiles/houghTest.dir/clean
+.PHONY : car_move/CMakeFiles/houghTest.dir/clean
+
+# clean rule for target.
+clean: car_move/CMakeFiles/houghTest.dir/clean
+.PHONY : clean
+
+#=============================================================================
 # Target rules for target car_move/CMakeFiles/image_match.dir
 
 # All Build rule for target.
 car_move/CMakeFiles/image_match.dir/all:
 	$(MAKE) -f car_move/CMakeFiles/image_match.dir/build.make car_move/CMakeFiles/image_match.dir/depend
 	$(MAKE) -f car_move/CMakeFiles/image_match.dir/build.make car_move/CMakeFiles/image_match.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/zhuyujin/ros/build/CMakeFiles  4
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/zhuyujin/ros/build/CMakeFiles  7
 	@echo "Built target image_match"
 .PHONY : car_move/CMakeFiles/image_match.dir/all
 
@@ -892,7 +931,7 @@ clean: car_move/CMakeFiles/std_msgs_generate_messages_py.dir/clean
 car_move/CMakeFiles/test_move.dir/all:
 	$(MAKE) -f car_move/CMakeFiles/test_move.dir/build.make car_move/CMakeFiles/test_move.dir/depend
 	$(MAKE) -f car_move/CMakeFiles/test_move.dir/build.make car_move/CMakeFiles/test_move.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/zhuyujin/ros/build/CMakeFiles  5
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/zhuyujin/ros/build/CMakeFiles  8
 	@echo "Built target test_move"
 .PHONY : car_move/CMakeFiles/test_move.dir/all
 
@@ -918,6 +957,41 @@ car_move/CMakeFiles/test_move.dir/clean:
 
 # clean rule for target.
 clean: car_move/CMakeFiles/test_move.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target car_move/CMakeFiles/zbarTest.dir
+
+# All Build rule for target.
+car_move/CMakeFiles/zbarTest.dir/all:
+	$(MAKE) -f car_move/CMakeFiles/zbarTest.dir/build.make car_move/CMakeFiles/zbarTest.dir/depend
+	$(MAKE) -f car_move/CMakeFiles/zbarTest.dir/build.make car_move/CMakeFiles/zbarTest.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/zhuyujin/ros/build/CMakeFiles  11
+	@echo "Built target zbarTest"
+.PHONY : car_move/CMakeFiles/zbarTest.dir/all
+
+# Include target in all.
+all: car_move/CMakeFiles/zbarTest.dir/all
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+car_move/CMakeFiles/zbarTest.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zhuyujin/ros/build/CMakeFiles 1
+	$(MAKE) -f CMakeFiles/Makefile2 car_move/CMakeFiles/zbarTest.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zhuyujin/ros/build/CMakeFiles 0
+.PHONY : car_move/CMakeFiles/zbarTest.dir/rule
+
+# Convenience name for target.
+zbarTest: car_move/CMakeFiles/zbarTest.dir/rule
+.PHONY : zbarTest
+
+# clean rule for target.
+car_move/CMakeFiles/zbarTest.dir/clean:
+	$(MAKE) -f car_move/CMakeFiles/zbarTest.dir/build.make car_move/CMakeFiles/zbarTest.dir/clean
+.PHONY : car_move/CMakeFiles/zbarTest.dir/clean
+
+# clean rule for target.
+clean: car_move/CMakeFiles/zbarTest.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -1040,7 +1114,7 @@ clean: usb_cam/CMakeFiles/std_srvs_generate_messages_py.dir/clean
 usb_cam/CMakeFiles/usb_cam.dir/all:
 	$(MAKE) -f usb_cam/CMakeFiles/usb_cam.dir/build.make usb_cam/CMakeFiles/usb_cam.dir/depend
 	$(MAKE) -f usb_cam/CMakeFiles/usb_cam.dir/build.make usb_cam/CMakeFiles/usb_cam.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/zhuyujin/ros/build/CMakeFiles  6
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/zhuyujin/ros/build/CMakeFiles  9
 	@echo "Built target usb_cam"
 .PHONY : usb_cam/CMakeFiles/usb_cam.dir/all
 
@@ -1075,7 +1149,7 @@ clean: usb_cam/CMakeFiles/usb_cam.dir/clean
 usb_cam/CMakeFiles/usb_cam_node.dir/all: usb_cam/CMakeFiles/usb_cam.dir/all
 	$(MAKE) -f usb_cam/CMakeFiles/usb_cam_node.dir/build.make usb_cam/CMakeFiles/usb_cam_node.dir/depend
 	$(MAKE) -f usb_cam/CMakeFiles/usb_cam_node.dir/build.make usb_cam/CMakeFiles/usb_cam_node.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/zhuyujin/ros/build/CMakeFiles  7
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/zhuyujin/ros/build/CMakeFiles  10
 	@echo "Built target usb_cam_node"
 .PHONY : usb_cam/CMakeFiles/usb_cam_node.dir/all
 
@@ -1101,6 +1175,349 @@ usb_cam/CMakeFiles/usb_cam_node.dir/clean:
 
 # clean rule for target.
 clean: usb_cam/CMakeFiles/usb_cam_node.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Directory level rules for directory zbar_ros
+
+# Convenience name for "all" pass in the directory.
+zbar_ros/all: zbar_ros/CMakeFiles/barcode_reader_node.dir/all
+zbar_ros/all: zbar_ros/CMakeFiles/barcode_reader_nodelet.dir/all
+.PHONY : zbar_ros/all
+
+# Convenience name for "clean" pass in the directory.
+zbar_ros/clean: zbar_ros/CMakeFiles/barcode_reader_node.dir/clean
+zbar_ros/clean: zbar_ros/CMakeFiles/barcode_reader_nodelet.dir/clean
+zbar_ros/clean: zbar_ros/CMakeFiles/bond_generate_messages_cpp.dir/clean
+zbar_ros/clean: zbar_ros/CMakeFiles/bond_generate_messages_lisp.dir/clean
+zbar_ros/clean: zbar_ros/CMakeFiles/bond_generate_messages_py.dir/clean
+zbar_ros/clean: zbar_ros/CMakeFiles/nodelet_generate_messages_cpp.dir/clean
+zbar_ros/clean: zbar_ros/CMakeFiles/nodelet_generate_messages_lisp.dir/clean
+zbar_ros/clean: zbar_ros/CMakeFiles/nodelet_generate_messages_py.dir/clean
+zbar_ros/clean: zbar_ros/CMakeFiles/roslint.dir/clean
+zbar_ros/clean: zbar_ros/CMakeFiles/roslint_zbar_ros.dir/clean
+.PHONY : zbar_ros/clean
+
+# Convenience name for "preinstall" pass in the directory.
+zbar_ros/preinstall:
+.PHONY : zbar_ros/preinstall
+
+#=============================================================================
+# Target rules for target zbar_ros/CMakeFiles/barcode_reader_node.dir
+
+# All Build rule for target.
+zbar_ros/CMakeFiles/barcode_reader_node.dir/all:
+	$(MAKE) -f zbar_ros/CMakeFiles/barcode_reader_node.dir/build.make zbar_ros/CMakeFiles/barcode_reader_node.dir/depend
+	$(MAKE) -f zbar_ros/CMakeFiles/barcode_reader_node.dir/build.make zbar_ros/CMakeFiles/barcode_reader_node.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/zhuyujin/ros/build/CMakeFiles  1
+	@echo "Built target barcode_reader_node"
+.PHONY : zbar_ros/CMakeFiles/barcode_reader_node.dir/all
+
+# Include target in all.
+all: zbar_ros/CMakeFiles/barcode_reader_node.dir/all
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+zbar_ros/CMakeFiles/barcode_reader_node.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zhuyujin/ros/build/CMakeFiles 1
+	$(MAKE) -f CMakeFiles/Makefile2 zbar_ros/CMakeFiles/barcode_reader_node.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zhuyujin/ros/build/CMakeFiles 0
+.PHONY : zbar_ros/CMakeFiles/barcode_reader_node.dir/rule
+
+# Convenience name for target.
+barcode_reader_node: zbar_ros/CMakeFiles/barcode_reader_node.dir/rule
+.PHONY : barcode_reader_node
+
+# clean rule for target.
+zbar_ros/CMakeFiles/barcode_reader_node.dir/clean:
+	$(MAKE) -f zbar_ros/CMakeFiles/barcode_reader_node.dir/build.make zbar_ros/CMakeFiles/barcode_reader_node.dir/clean
+.PHONY : zbar_ros/CMakeFiles/barcode_reader_node.dir/clean
+
+# clean rule for target.
+clean: zbar_ros/CMakeFiles/barcode_reader_node.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target zbar_ros/CMakeFiles/barcode_reader_nodelet.dir
+
+# All Build rule for target.
+zbar_ros/CMakeFiles/barcode_reader_nodelet.dir/all:
+	$(MAKE) -f zbar_ros/CMakeFiles/barcode_reader_nodelet.dir/build.make zbar_ros/CMakeFiles/barcode_reader_nodelet.dir/depend
+	$(MAKE) -f zbar_ros/CMakeFiles/barcode_reader_nodelet.dir/build.make zbar_ros/CMakeFiles/barcode_reader_nodelet.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/zhuyujin/ros/build/CMakeFiles  2
+	@echo "Built target barcode_reader_nodelet"
+.PHONY : zbar_ros/CMakeFiles/barcode_reader_nodelet.dir/all
+
+# Include target in all.
+all: zbar_ros/CMakeFiles/barcode_reader_nodelet.dir/all
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+zbar_ros/CMakeFiles/barcode_reader_nodelet.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zhuyujin/ros/build/CMakeFiles 1
+	$(MAKE) -f CMakeFiles/Makefile2 zbar_ros/CMakeFiles/barcode_reader_nodelet.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zhuyujin/ros/build/CMakeFiles 0
+.PHONY : zbar_ros/CMakeFiles/barcode_reader_nodelet.dir/rule
+
+# Convenience name for target.
+barcode_reader_nodelet: zbar_ros/CMakeFiles/barcode_reader_nodelet.dir/rule
+.PHONY : barcode_reader_nodelet
+
+# clean rule for target.
+zbar_ros/CMakeFiles/barcode_reader_nodelet.dir/clean:
+	$(MAKE) -f zbar_ros/CMakeFiles/barcode_reader_nodelet.dir/build.make zbar_ros/CMakeFiles/barcode_reader_nodelet.dir/clean
+.PHONY : zbar_ros/CMakeFiles/barcode_reader_nodelet.dir/clean
+
+# clean rule for target.
+clean: zbar_ros/CMakeFiles/barcode_reader_nodelet.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target zbar_ros/CMakeFiles/bond_generate_messages_cpp.dir
+
+# All Build rule for target.
+zbar_ros/CMakeFiles/bond_generate_messages_cpp.dir/all:
+	$(MAKE) -f zbar_ros/CMakeFiles/bond_generate_messages_cpp.dir/build.make zbar_ros/CMakeFiles/bond_generate_messages_cpp.dir/depend
+	$(MAKE) -f zbar_ros/CMakeFiles/bond_generate_messages_cpp.dir/build.make zbar_ros/CMakeFiles/bond_generate_messages_cpp.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/zhuyujin/ros/build/CMakeFiles 
+	@echo "Built target bond_generate_messages_cpp"
+.PHONY : zbar_ros/CMakeFiles/bond_generate_messages_cpp.dir/all
+
+# Build rule for subdir invocation for target.
+zbar_ros/CMakeFiles/bond_generate_messages_cpp.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zhuyujin/ros/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 zbar_ros/CMakeFiles/bond_generate_messages_cpp.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zhuyujin/ros/build/CMakeFiles 0
+.PHONY : zbar_ros/CMakeFiles/bond_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+bond_generate_messages_cpp: zbar_ros/CMakeFiles/bond_generate_messages_cpp.dir/rule
+.PHONY : bond_generate_messages_cpp
+
+# clean rule for target.
+zbar_ros/CMakeFiles/bond_generate_messages_cpp.dir/clean:
+	$(MAKE) -f zbar_ros/CMakeFiles/bond_generate_messages_cpp.dir/build.make zbar_ros/CMakeFiles/bond_generate_messages_cpp.dir/clean
+.PHONY : zbar_ros/CMakeFiles/bond_generate_messages_cpp.dir/clean
+
+# clean rule for target.
+clean: zbar_ros/CMakeFiles/bond_generate_messages_cpp.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target zbar_ros/CMakeFiles/bond_generate_messages_lisp.dir
+
+# All Build rule for target.
+zbar_ros/CMakeFiles/bond_generate_messages_lisp.dir/all:
+	$(MAKE) -f zbar_ros/CMakeFiles/bond_generate_messages_lisp.dir/build.make zbar_ros/CMakeFiles/bond_generate_messages_lisp.dir/depend
+	$(MAKE) -f zbar_ros/CMakeFiles/bond_generate_messages_lisp.dir/build.make zbar_ros/CMakeFiles/bond_generate_messages_lisp.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/zhuyujin/ros/build/CMakeFiles 
+	@echo "Built target bond_generate_messages_lisp"
+.PHONY : zbar_ros/CMakeFiles/bond_generate_messages_lisp.dir/all
+
+# Build rule for subdir invocation for target.
+zbar_ros/CMakeFiles/bond_generate_messages_lisp.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zhuyujin/ros/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 zbar_ros/CMakeFiles/bond_generate_messages_lisp.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zhuyujin/ros/build/CMakeFiles 0
+.PHONY : zbar_ros/CMakeFiles/bond_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+bond_generate_messages_lisp: zbar_ros/CMakeFiles/bond_generate_messages_lisp.dir/rule
+.PHONY : bond_generate_messages_lisp
+
+# clean rule for target.
+zbar_ros/CMakeFiles/bond_generate_messages_lisp.dir/clean:
+	$(MAKE) -f zbar_ros/CMakeFiles/bond_generate_messages_lisp.dir/build.make zbar_ros/CMakeFiles/bond_generate_messages_lisp.dir/clean
+.PHONY : zbar_ros/CMakeFiles/bond_generate_messages_lisp.dir/clean
+
+# clean rule for target.
+clean: zbar_ros/CMakeFiles/bond_generate_messages_lisp.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target zbar_ros/CMakeFiles/bond_generate_messages_py.dir
+
+# All Build rule for target.
+zbar_ros/CMakeFiles/bond_generate_messages_py.dir/all:
+	$(MAKE) -f zbar_ros/CMakeFiles/bond_generate_messages_py.dir/build.make zbar_ros/CMakeFiles/bond_generate_messages_py.dir/depend
+	$(MAKE) -f zbar_ros/CMakeFiles/bond_generate_messages_py.dir/build.make zbar_ros/CMakeFiles/bond_generate_messages_py.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/zhuyujin/ros/build/CMakeFiles 
+	@echo "Built target bond_generate_messages_py"
+.PHONY : zbar_ros/CMakeFiles/bond_generate_messages_py.dir/all
+
+# Build rule for subdir invocation for target.
+zbar_ros/CMakeFiles/bond_generate_messages_py.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zhuyujin/ros/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 zbar_ros/CMakeFiles/bond_generate_messages_py.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zhuyujin/ros/build/CMakeFiles 0
+.PHONY : zbar_ros/CMakeFiles/bond_generate_messages_py.dir/rule
+
+# Convenience name for target.
+bond_generate_messages_py: zbar_ros/CMakeFiles/bond_generate_messages_py.dir/rule
+.PHONY : bond_generate_messages_py
+
+# clean rule for target.
+zbar_ros/CMakeFiles/bond_generate_messages_py.dir/clean:
+	$(MAKE) -f zbar_ros/CMakeFiles/bond_generate_messages_py.dir/build.make zbar_ros/CMakeFiles/bond_generate_messages_py.dir/clean
+.PHONY : zbar_ros/CMakeFiles/bond_generate_messages_py.dir/clean
+
+# clean rule for target.
+clean: zbar_ros/CMakeFiles/bond_generate_messages_py.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target zbar_ros/CMakeFiles/nodelet_generate_messages_cpp.dir
+
+# All Build rule for target.
+zbar_ros/CMakeFiles/nodelet_generate_messages_cpp.dir/all:
+	$(MAKE) -f zbar_ros/CMakeFiles/nodelet_generate_messages_cpp.dir/build.make zbar_ros/CMakeFiles/nodelet_generate_messages_cpp.dir/depend
+	$(MAKE) -f zbar_ros/CMakeFiles/nodelet_generate_messages_cpp.dir/build.make zbar_ros/CMakeFiles/nodelet_generate_messages_cpp.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/zhuyujin/ros/build/CMakeFiles 
+	@echo "Built target nodelet_generate_messages_cpp"
+.PHONY : zbar_ros/CMakeFiles/nodelet_generate_messages_cpp.dir/all
+
+# Build rule for subdir invocation for target.
+zbar_ros/CMakeFiles/nodelet_generate_messages_cpp.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zhuyujin/ros/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 zbar_ros/CMakeFiles/nodelet_generate_messages_cpp.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zhuyujin/ros/build/CMakeFiles 0
+.PHONY : zbar_ros/CMakeFiles/nodelet_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+nodelet_generate_messages_cpp: zbar_ros/CMakeFiles/nodelet_generate_messages_cpp.dir/rule
+.PHONY : nodelet_generate_messages_cpp
+
+# clean rule for target.
+zbar_ros/CMakeFiles/nodelet_generate_messages_cpp.dir/clean:
+	$(MAKE) -f zbar_ros/CMakeFiles/nodelet_generate_messages_cpp.dir/build.make zbar_ros/CMakeFiles/nodelet_generate_messages_cpp.dir/clean
+.PHONY : zbar_ros/CMakeFiles/nodelet_generate_messages_cpp.dir/clean
+
+# clean rule for target.
+clean: zbar_ros/CMakeFiles/nodelet_generate_messages_cpp.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target zbar_ros/CMakeFiles/nodelet_generate_messages_lisp.dir
+
+# All Build rule for target.
+zbar_ros/CMakeFiles/nodelet_generate_messages_lisp.dir/all:
+	$(MAKE) -f zbar_ros/CMakeFiles/nodelet_generate_messages_lisp.dir/build.make zbar_ros/CMakeFiles/nodelet_generate_messages_lisp.dir/depend
+	$(MAKE) -f zbar_ros/CMakeFiles/nodelet_generate_messages_lisp.dir/build.make zbar_ros/CMakeFiles/nodelet_generate_messages_lisp.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/zhuyujin/ros/build/CMakeFiles 
+	@echo "Built target nodelet_generate_messages_lisp"
+.PHONY : zbar_ros/CMakeFiles/nodelet_generate_messages_lisp.dir/all
+
+# Build rule for subdir invocation for target.
+zbar_ros/CMakeFiles/nodelet_generate_messages_lisp.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zhuyujin/ros/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 zbar_ros/CMakeFiles/nodelet_generate_messages_lisp.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zhuyujin/ros/build/CMakeFiles 0
+.PHONY : zbar_ros/CMakeFiles/nodelet_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+nodelet_generate_messages_lisp: zbar_ros/CMakeFiles/nodelet_generate_messages_lisp.dir/rule
+.PHONY : nodelet_generate_messages_lisp
+
+# clean rule for target.
+zbar_ros/CMakeFiles/nodelet_generate_messages_lisp.dir/clean:
+	$(MAKE) -f zbar_ros/CMakeFiles/nodelet_generate_messages_lisp.dir/build.make zbar_ros/CMakeFiles/nodelet_generate_messages_lisp.dir/clean
+.PHONY : zbar_ros/CMakeFiles/nodelet_generate_messages_lisp.dir/clean
+
+# clean rule for target.
+clean: zbar_ros/CMakeFiles/nodelet_generate_messages_lisp.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target zbar_ros/CMakeFiles/nodelet_generate_messages_py.dir
+
+# All Build rule for target.
+zbar_ros/CMakeFiles/nodelet_generate_messages_py.dir/all:
+	$(MAKE) -f zbar_ros/CMakeFiles/nodelet_generate_messages_py.dir/build.make zbar_ros/CMakeFiles/nodelet_generate_messages_py.dir/depend
+	$(MAKE) -f zbar_ros/CMakeFiles/nodelet_generate_messages_py.dir/build.make zbar_ros/CMakeFiles/nodelet_generate_messages_py.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/zhuyujin/ros/build/CMakeFiles 
+	@echo "Built target nodelet_generate_messages_py"
+.PHONY : zbar_ros/CMakeFiles/nodelet_generate_messages_py.dir/all
+
+# Build rule for subdir invocation for target.
+zbar_ros/CMakeFiles/nodelet_generate_messages_py.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zhuyujin/ros/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 zbar_ros/CMakeFiles/nodelet_generate_messages_py.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zhuyujin/ros/build/CMakeFiles 0
+.PHONY : zbar_ros/CMakeFiles/nodelet_generate_messages_py.dir/rule
+
+# Convenience name for target.
+nodelet_generate_messages_py: zbar_ros/CMakeFiles/nodelet_generate_messages_py.dir/rule
+.PHONY : nodelet_generate_messages_py
+
+# clean rule for target.
+zbar_ros/CMakeFiles/nodelet_generate_messages_py.dir/clean:
+	$(MAKE) -f zbar_ros/CMakeFiles/nodelet_generate_messages_py.dir/build.make zbar_ros/CMakeFiles/nodelet_generate_messages_py.dir/clean
+.PHONY : zbar_ros/CMakeFiles/nodelet_generate_messages_py.dir/clean
+
+# clean rule for target.
+clean: zbar_ros/CMakeFiles/nodelet_generate_messages_py.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target zbar_ros/CMakeFiles/roslint.dir
+
+# All Build rule for target.
+zbar_ros/CMakeFiles/roslint.dir/all: zbar_ros/CMakeFiles/roslint_zbar_ros.dir/all
+	$(MAKE) -f zbar_ros/CMakeFiles/roslint.dir/build.make zbar_ros/CMakeFiles/roslint.dir/depend
+	$(MAKE) -f zbar_ros/CMakeFiles/roslint.dir/build.make zbar_ros/CMakeFiles/roslint.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/zhuyujin/ros/build/CMakeFiles 
+	@echo "Built target roslint"
+.PHONY : zbar_ros/CMakeFiles/roslint.dir/all
+
+# Build rule for subdir invocation for target.
+zbar_ros/CMakeFiles/roslint.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zhuyujin/ros/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 zbar_ros/CMakeFiles/roslint.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zhuyujin/ros/build/CMakeFiles 0
+.PHONY : zbar_ros/CMakeFiles/roslint.dir/rule
+
+# Convenience name for target.
+roslint: zbar_ros/CMakeFiles/roslint.dir/rule
+.PHONY : roslint
+
+# clean rule for target.
+zbar_ros/CMakeFiles/roslint.dir/clean:
+	$(MAKE) -f zbar_ros/CMakeFiles/roslint.dir/build.make zbar_ros/CMakeFiles/roslint.dir/clean
+.PHONY : zbar_ros/CMakeFiles/roslint.dir/clean
+
+# clean rule for target.
+clean: zbar_ros/CMakeFiles/roslint.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target zbar_ros/CMakeFiles/roslint_zbar_ros.dir
+
+# All Build rule for target.
+zbar_ros/CMakeFiles/roslint_zbar_ros.dir/all:
+	$(MAKE) -f zbar_ros/CMakeFiles/roslint_zbar_ros.dir/build.make zbar_ros/CMakeFiles/roslint_zbar_ros.dir/depend
+	$(MAKE) -f zbar_ros/CMakeFiles/roslint_zbar_ros.dir/build.make zbar_ros/CMakeFiles/roslint_zbar_ros.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/zhuyujin/ros/build/CMakeFiles 
+	@echo "Built target roslint_zbar_ros"
+.PHONY : zbar_ros/CMakeFiles/roslint_zbar_ros.dir/all
+
+# Build rule for subdir invocation for target.
+zbar_ros/CMakeFiles/roslint_zbar_ros.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zhuyujin/ros/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 zbar_ros/CMakeFiles/roslint_zbar_ros.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zhuyujin/ros/build/CMakeFiles 0
+.PHONY : zbar_ros/CMakeFiles/roslint_zbar_ros.dir/rule
+
+# Convenience name for target.
+roslint_zbar_ros: zbar_ros/CMakeFiles/roslint_zbar_ros.dir/rule
+.PHONY : roslint_zbar_ros
+
+# clean rule for target.
+zbar_ros/CMakeFiles/roslint_zbar_ros.dir/clean:
+	$(MAKE) -f zbar_ros/CMakeFiles/roslint_zbar_ros.dir/build.make zbar_ros/CMakeFiles/roslint_zbar_ros.dir/clean
+.PHONY : zbar_ros/CMakeFiles/roslint_zbar_ros.dir/clean
+
+# clean rule for target.
+clean: zbar_ros/CMakeFiles/roslint_zbar_ros.dir/clean
 .PHONY : clean
 
 #=============================================================================

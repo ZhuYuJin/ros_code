@@ -306,6 +306,19 @@ geometry_msgs_generate_messages_py/fast:
 .PHONY : geometry_msgs_generate_messages_py/fast
 
 #=============================================================================
+# Target rules for targets named houghTest
+
+# Build rule for target.
+houghTest: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 houghTest
+.PHONY : houghTest
+
+# fast build rule for target.
+houghTest/fast:
+	$(MAKE) -f car_move/CMakeFiles/houghTest.dir/build.make car_move/CMakeFiles/houghTest.dir/build
+.PHONY : houghTest/fast
+
+#=============================================================================
 # Target rules for targets named image_match
 
 # Build rule for target.
@@ -488,6 +501,19 @@ test_move/fast:
 .PHONY : test_move/fast
 
 #=============================================================================
+# Target rules for targets named zbarTest
+
+# Build rule for target.
+zbarTest: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 zbarTest
+.PHONY : zbarTest
+
+# fast build rule for target.
+zbarTest/fast:
+	$(MAKE) -f car_move/CMakeFiles/zbarTest.dir/build.make car_move/CMakeFiles/zbarTest.dir/build
+.PHONY : zbarTest/fast
+
+#=============================================================================
 # Target rules for targets named std_srvs_generate_messages_cpp
 
 # Build rule for target.
@@ -552,6 +578,136 @@ usb_cam_node/fast:
 	$(MAKE) -f usb_cam/CMakeFiles/usb_cam_node.dir/build.make usb_cam/CMakeFiles/usb_cam_node.dir/build
 .PHONY : usb_cam_node/fast
 
+#=============================================================================
+# Target rules for targets named barcode_reader_node
+
+# Build rule for target.
+barcode_reader_node: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 barcode_reader_node
+.PHONY : barcode_reader_node
+
+# fast build rule for target.
+barcode_reader_node/fast:
+	$(MAKE) -f zbar_ros/CMakeFiles/barcode_reader_node.dir/build.make zbar_ros/CMakeFiles/barcode_reader_node.dir/build
+.PHONY : barcode_reader_node/fast
+
+#=============================================================================
+# Target rules for targets named barcode_reader_nodelet
+
+# Build rule for target.
+barcode_reader_nodelet: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 barcode_reader_nodelet
+.PHONY : barcode_reader_nodelet
+
+# fast build rule for target.
+barcode_reader_nodelet/fast:
+	$(MAKE) -f zbar_ros/CMakeFiles/barcode_reader_nodelet.dir/build.make zbar_ros/CMakeFiles/barcode_reader_nodelet.dir/build
+.PHONY : barcode_reader_nodelet/fast
+
+#=============================================================================
+# Target rules for targets named bond_generate_messages_cpp
+
+# Build rule for target.
+bond_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 bond_generate_messages_cpp
+.PHONY : bond_generate_messages_cpp
+
+# fast build rule for target.
+bond_generate_messages_cpp/fast:
+	$(MAKE) -f zbar_ros/CMakeFiles/bond_generate_messages_cpp.dir/build.make zbar_ros/CMakeFiles/bond_generate_messages_cpp.dir/build
+.PHONY : bond_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named bond_generate_messages_lisp
+
+# Build rule for target.
+bond_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 bond_generate_messages_lisp
+.PHONY : bond_generate_messages_lisp
+
+# fast build rule for target.
+bond_generate_messages_lisp/fast:
+	$(MAKE) -f zbar_ros/CMakeFiles/bond_generate_messages_lisp.dir/build.make zbar_ros/CMakeFiles/bond_generate_messages_lisp.dir/build
+.PHONY : bond_generate_messages_lisp/fast
+
+#=============================================================================
+# Target rules for targets named bond_generate_messages_py
+
+# Build rule for target.
+bond_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 bond_generate_messages_py
+.PHONY : bond_generate_messages_py
+
+# fast build rule for target.
+bond_generate_messages_py/fast:
+	$(MAKE) -f zbar_ros/CMakeFiles/bond_generate_messages_py.dir/build.make zbar_ros/CMakeFiles/bond_generate_messages_py.dir/build
+.PHONY : bond_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named nodelet_generate_messages_cpp
+
+# Build rule for target.
+nodelet_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 nodelet_generate_messages_cpp
+.PHONY : nodelet_generate_messages_cpp
+
+# fast build rule for target.
+nodelet_generate_messages_cpp/fast:
+	$(MAKE) -f zbar_ros/CMakeFiles/nodelet_generate_messages_cpp.dir/build.make zbar_ros/CMakeFiles/nodelet_generate_messages_cpp.dir/build
+.PHONY : nodelet_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named nodelet_generate_messages_lisp
+
+# Build rule for target.
+nodelet_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 nodelet_generate_messages_lisp
+.PHONY : nodelet_generate_messages_lisp
+
+# fast build rule for target.
+nodelet_generate_messages_lisp/fast:
+	$(MAKE) -f zbar_ros/CMakeFiles/nodelet_generate_messages_lisp.dir/build.make zbar_ros/CMakeFiles/nodelet_generate_messages_lisp.dir/build
+.PHONY : nodelet_generate_messages_lisp/fast
+
+#=============================================================================
+# Target rules for targets named nodelet_generate_messages_py
+
+# Build rule for target.
+nodelet_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 nodelet_generate_messages_py
+.PHONY : nodelet_generate_messages_py
+
+# fast build rule for target.
+nodelet_generate_messages_py/fast:
+	$(MAKE) -f zbar_ros/CMakeFiles/nodelet_generate_messages_py.dir/build.make zbar_ros/CMakeFiles/nodelet_generate_messages_py.dir/build
+.PHONY : nodelet_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named roslint
+
+# Build rule for target.
+roslint: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 roslint
+.PHONY : roslint
+
+# fast build rule for target.
+roslint/fast:
+	$(MAKE) -f zbar_ros/CMakeFiles/roslint.dir/build.make zbar_ros/CMakeFiles/roslint.dir/build
+.PHONY : roslint/fast
+
+#=============================================================================
+# Target rules for targets named roslint_zbar_ros
+
+# Build rule for target.
+roslint_zbar_ros: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 roslint_zbar_ros
+.PHONY : roslint_zbar_ros
+
+# fast build rule for target.
+roslint_zbar_ros/fast:
+	$(MAKE) -f zbar_ros/CMakeFiles/roslint_zbar_ros.dir/build.make zbar_ros/CMakeFiles/roslint_zbar_ros.dir/build
+.PHONY : roslint_zbar_ros/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -577,6 +733,7 @@ help:
 	@echo "... geometry_msgs_generate_messages_cpp"
 	@echo "... geometry_msgs_generate_messages_lisp"
 	@echo "... geometry_msgs_generate_messages_py"
+	@echo "... houghTest"
 	@echo "... image_match"
 	@echo "... roscpp_generate_messages_cpp"
 	@echo "... roscpp_generate_messages_lisp"
@@ -591,11 +748,22 @@ help:
 	@echo "... std_msgs_generate_messages_lisp"
 	@echo "... std_msgs_generate_messages_py"
 	@echo "... test_move"
+	@echo "... zbarTest"
 	@echo "... std_srvs_generate_messages_cpp"
 	@echo "... std_srvs_generate_messages_lisp"
 	@echo "... std_srvs_generate_messages_py"
 	@echo "... usb_cam"
 	@echo "... usb_cam_node"
+	@echo "... barcode_reader_node"
+	@echo "... barcode_reader_nodelet"
+	@echo "... bond_generate_messages_cpp"
+	@echo "... bond_generate_messages_lisp"
+	@echo "... bond_generate_messages_py"
+	@echo "... nodelet_generate_messages_cpp"
+	@echo "... nodelet_generate_messages_lisp"
+	@echo "... nodelet_generate_messages_py"
+	@echo "... roslint"
+	@echo "... roslint_zbar_ros"
 .PHONY : help
 
 

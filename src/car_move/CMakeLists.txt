@@ -126,6 +126,8 @@ include_directories(include ${catkin_INCLUDE_DIRS})
 add_executable(image_match image_match.cpp)
 add_executable(basic_move basic_move.cpp)
 add_executable(test_move test_move.cpp)
+add_executable(houghTest houghTest.cpp)
+add_executable(zbarTest zbarTest.cpp)
 
 ## Add cmake target dependencies of the executable
 ## same as for the library above
@@ -140,6 +142,11 @@ target_link_libraries(basic_move ${catkin_LIBRARIES}
 	wiringPi
 )
 target_link_libraries(test_move ${catkin_LIBRARIES})
+target_link_libraries(houghTest
+	${catkin_LIBRARIES}
+	opencv_nonfree
+)
+target_link_libraries(zbarTest ${catkin_LIBRARIES})
 
 #############
 ## Install ##

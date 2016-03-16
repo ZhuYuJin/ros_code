@@ -119,6 +119,7 @@ IF(NOT CMAKE_INSTALL_LOCAL_ONLY)
   INCLUDE("/home/zhuyujin/ros/build/gtest/cmake_install.cmake")
   INCLUDE("/home/zhuyujin/ros/build/car_move/cmake_install.cmake")
   INCLUDE("/home/zhuyujin/ros/build/usb_cam/cmake_install.cmake")
+  INCLUDE("/home/zhuyujin/ros/build/zbar_ros/cmake_install.cmake")
 
 ENDIF(NOT CMAKE_INSTALL_LOCAL_ONLY)
 

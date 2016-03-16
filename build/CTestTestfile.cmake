@@ -7,3 +7,4 @@
 SUBDIRS(gtest)
 SUBDIRS(car_move)
 SUBDIRS(usb_cam)
+SUBDIRS(zbar_ros)

@@ -206,6 +206,20 @@ geometry_msgs_generate_messages_py/fast:
 .PHONY : geometry_msgs_generate_messages_py/fast
 
 # Convenience name for target.
+car_move/CMakeFiles/houghTest.dir/rule:
+	cd /home/zhuyujin/ros/build && $(MAKE) -f CMakeFiles/Makefile2 car_move/CMakeFiles/houghTest.dir/rule
+.PHONY : car_move/CMakeFiles/houghTest.dir/rule
+
+# Convenience name for target.
+houghTest: car_move/CMakeFiles/houghTest.dir/rule
+.PHONY : houghTest
+
+# fast build rule for target.
+houghTest/fast:
+	cd /home/zhuyujin/ros/build && $(MAKE) -f car_move/CMakeFiles/houghTest.dir/build.make car_move/CMakeFiles/houghTest.dir/build
+.PHONY : houghTest/fast
+
+# Convenience name for target.
 car_move/CMakeFiles/image_match.dir/rule:
 	cd /home/zhuyujin/ros/build && $(MAKE) -f CMakeFiles/Makefile2 car_move/CMakeFiles/image_match.dir/rule
 .PHONY : car_move/CMakeFiles/image_match.dir/rule
@@ -401,6 +415,20 @@ test_move/fast:
 	cd /home/zhuyujin/ros/build && $(MAKE) -f car_move/CMakeFiles/test_move.dir/build.make car_move/CMakeFiles/test_move.dir/build
 .PHONY : test_move/fast
 
+# Convenience name for target.
+car_move/CMakeFiles/zbarTest.dir/rule:
+	cd /home/zhuyujin/ros/build && $(MAKE) -f CMakeFiles/Makefile2 car_move/CMakeFiles/zbarTest.dir/rule
+.PHONY : car_move/CMakeFiles/zbarTest.dir/rule
+
+# Convenience name for target.
+zbarTest: car_move/CMakeFiles/zbarTest.dir/rule
+.PHONY : zbarTest
+
+# fast build rule for target.
+zbarTest/fast:
+	cd /home/zhuyujin/ros/build && $(MAKE) -f car_move/CMakeFiles/zbarTest.dir/build.make car_move/CMakeFiles/zbarTest.dir/build
+.PHONY : zbarTest/fast
+
 basic_move.o: basic_move.cpp.o
 .PHONY : basic_move.o
 
@@ -424,6 +452,30 @@ basic_move.s: basic_move.cpp.s
 basic_move.cpp.s:
 	cd /home/zhuyujin/ros/build && $(MAKE) -f car_move/CMakeFiles/basic_move.dir/build.make car_move/CMakeFiles/basic_move.dir/basic_move.cpp.s
 .PHONY : basic_move.cpp.s
+
+houghTest.o: houghTest.cpp.o
+.PHONY : houghTest.o
+
+# target to build an object file
+houghTest.cpp.o:
+	cd /home/zhuyujin/ros/build && $(MAKE) -f car_move/CMakeFiles/houghTest.dir/build.make car_move/CMakeFiles/houghTest.dir/houghTest.cpp.o
+.PHONY : houghTest.cpp.o
+
+houghTest.i: houghTest.cpp.i
+.PHONY : houghTest.i
+
+# target to preprocess a source file
+houghTest.cpp.i:
+	cd /home/zhuyujin/ros/build && $(MAKE) -f car_move/CMakeFiles/houghTest.dir/build.make car_move/CMakeFiles/houghTest.dir/houghTest.cpp.i
+.PHONY : houghTest.cpp.i
+
+houghTest.s: houghTest.cpp.s
+.PHONY : houghTest.s
+
+# target to generate assembly for a file
+houghTest.cpp.s:
+	cd /home/zhuyujin/ros/build && $(MAKE) -f car_move/CMakeFiles/houghTest.dir/build.make car_move/CMakeFiles/houghTest.dir/houghTest.cpp.s
+.PHONY : houghTest.cpp.s
 
 image_match.o: image_match.cpp.o
 .PHONY : image_match.o
@@ -473,6 +525,30 @@ test_move.cpp.s:
 	cd /home/zhuyujin/ros/build && $(MAKE) -f car_move/CMakeFiles/test_move.dir/build.make car_move/CMakeFiles/test_move.dir/test_move.cpp.s
 .PHONY : test_move.cpp.s
 
+zbarTest.o: zbarTest.cpp.o
+.PHONY : zbarTest.o
+
+# target to build an object file
+zbarTest.cpp.o:
+	cd /home/zhuyujin/ros/build && $(MAKE) -f car_move/CMakeFiles/zbarTest.dir/build.make car_move/CMakeFiles/zbarTest.dir/zbarTest.cpp.o
+.PHONY : zbarTest.cpp.o
+
+zbarTest.i: zbarTest.cpp.i
+.PHONY : zbarTest.i
+
+# target to preprocess a source file
+zbarTest.cpp.i:
+	cd /home/zhuyujin/ros/build && $(MAKE) -f car_move/CMakeFiles/zbarTest.dir/build.make car_move/CMakeFiles/zbarTest.dir/zbarTest.cpp.i
+.PHONY : zbarTest.cpp.i
+
+zbarTest.s: zbarTest.cpp.s
+.PHONY : zbarTest.s
+
+# target to generate assembly for a file
+zbarTest.cpp.s:
+	cd /home/zhuyujin/ros/build && $(MAKE) -f car_move/CMakeFiles/zbarTest.dir/build.make car_move/CMakeFiles/zbarTest.dir/zbarTest.cpp.s
+.PHONY : zbarTest.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -484,6 +560,7 @@ help:
 	@echo "... geometry_msgs_generate_messages_cpp"
 	@echo "... geometry_msgs_generate_messages_lisp"
 	@echo "... geometry_msgs_generate_messages_py"
+	@echo "... houghTest"
 	@echo "... image_match"
 	@echo "... install"
 	@echo "... install/local"
@@ -504,15 +581,22 @@ help:
 	@echo "... std_msgs_generate_messages_py"
 	@echo "... test"
 	@echo "... test_move"
+	@echo "... zbarTest"
 	@echo "... basic_move.o"
 	@echo "... basic_move.i"
 	@echo "... basic_move.s"
+	@echo "... houghTest.o"
+	@echo "... houghTest.i"
+	@echo "... houghTest.s"
 	@echo "... image_match.o"
 	@echo "... image_match.i"
 	@echo "... image_match.s"
 	@echo "... test_move.o"
 	@echo "... test_move.i"
 	@echo "... test_move.s"
+	@echo "... zbarTest.o"
+	@echo "... zbarTest.i"
+	@echo "... zbarTest.s"
 .PHONY : help
 
 
