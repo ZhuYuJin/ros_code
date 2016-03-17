@@ -17,6 +17,8 @@ cv_bridge/cv_bridge.h
 /home/zhuyujin/ros/src/zbar_ros/include/zbar_ros/cv_bridge/cv_bridge.h
 zbar.h
 /home/zhuyujin/ros/src/zbar_ros/include/zbar_ros/zbar.h
+zbar/Symbol.h
+/home/zhuyujin/ros/src/zbar_ros/include/zbar_ros/zbar/Symbol.h
 boost/unordered_map.hpp
 /home/zhuyujin/ros/src/zbar_ros/include/zbar_ros/boost/unordered_map.hpp
 string
