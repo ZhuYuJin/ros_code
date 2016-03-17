@@ -1,3 +1,4 @@
+/home/zhuyujin/ros/build/car_move/CMakeFiles/barcode_detect.dir
 /home/zhuyujin/ros/build/zbar_ros/CMakeFiles/barcode_reader_node.dir
 /home/zhuyujin/ros/build/zbar_ros/CMakeFiles/barcode_reader_nodelet.dir
 /home/zhuyujin/ros/build/car_move/CMakeFiles/basic_move.dir

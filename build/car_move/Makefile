@@ -150,6 +150,20 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+car_move/CMakeFiles/barcode_detect.dir/rule:
+	cd /home/zhuyujin/ros/build && $(MAKE) -f CMakeFiles/Makefile2 car_move/CMakeFiles/barcode_detect.dir/rule
+.PHONY : car_move/CMakeFiles/barcode_detect.dir/rule
+
+# Convenience name for target.
+barcode_detect: car_move/CMakeFiles/barcode_detect.dir/rule
+.PHONY : barcode_detect
+
+# fast build rule for target.
+barcode_detect/fast:
+	cd /home/zhuyujin/ros/build && $(MAKE) -f car_move/CMakeFiles/barcode_detect.dir/build.make car_move/CMakeFiles/barcode_detect.dir/build
+.PHONY : barcode_detect/fast
+
+# Convenience name for target.
 car_move/CMakeFiles/basic_move.dir/rule:
 	cd /home/zhuyujin/ros/build && $(MAKE) -f CMakeFiles/Makefile2 car_move/CMakeFiles/basic_move.dir/rule
 .PHONY : car_move/CMakeFiles/basic_move.dir/rule
@@ -429,6 +443,30 @@ zbarTest/fast:
 	cd /home/zhuyujin/ros/build && $(MAKE) -f car_move/CMakeFiles/zbarTest.dir/build.make car_move/CMakeFiles/zbarTest.dir/build
 .PHONY : zbarTest/fast
 
+barcode_detect.o: barcode_detect.cpp.o
+.PHONY : barcode_detect.o
+
+# target to build an object file
+barcode_detect.cpp.o:
+	cd /home/zhuyujin/ros/build && $(MAKE) -f car_move/CMakeFiles/barcode_detect.dir/build.make car_move/CMakeFiles/barcode_detect.dir/barcode_detect.cpp.o
+.PHONY : barcode_detect.cpp.o
+
+barcode_detect.i: barcode_detect.cpp.i
+.PHONY : barcode_detect.i
+
+# target to preprocess a source file
+barcode_detect.cpp.i:
+	cd /home/zhuyujin/ros/build && $(MAKE) -f car_move/CMakeFiles/barcode_detect.dir/build.make car_move/CMakeFiles/barcode_detect.dir/barcode_detect.cpp.i
+.PHONY : barcode_detect.cpp.i
+
+barcode_detect.s: barcode_detect.cpp.s
+.PHONY : barcode_detect.s
+
+# target to generate assembly for a file
+barcode_detect.cpp.s:
+	cd /home/zhuyujin/ros/build && $(MAKE) -f car_move/CMakeFiles/barcode_detect.dir/build.make car_move/CMakeFiles/barcode_detect.dir/barcode_detect.cpp.s
+.PHONY : barcode_detect.cpp.s
+
 basic_move.o: basic_move.cpp.o
 .PHONY : basic_move.o
 
@@ -555,6 +593,7 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... barcode_detect"
 	@echo "... basic_move"
 	@echo "... edit_cache"
 	@echo "... geometry_msgs_generate_messages_cpp"
@@ -582,6 +621,9 @@ help:
 	@echo "... test"
 	@echo "... test_move"
 	@echo "... zbarTest"
+	@echo "... barcode_detect.o"
+	@echo "... barcode_detect.i"
+	@echo "... barcode_detect.s"
 	@echo "... basic_move.o"
 	@echo "... basic_move.i"
 	@echo "... basic_move.s"

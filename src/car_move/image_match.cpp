@@ -18,6 +18,10 @@ static const std::string OPENCV_WINDOW = "Monitor";
 static const std::string RESULT_WINDOW = "Result";
 static const std::string TEST_WINDOW = "Test";
  
+bool sort_by_point_num(const cv::vector<cv::Point>& v1, const cv::vector<cv::Point>& v2){
+ return v1.size() >= v2.size();
+}
+
 class ImageConverter
 {
   ros::NodeHandle nh_;
@@ -30,7 +34,7 @@ public:
     : it_(nh_)
   {
     // Subscrive to input video feed and publish output video feed
-    image_sub_ = it_.subscribe("/usb_cam/image_raw", 1, &ImageConverter::imageFeatureMatch, this);
+    image_sub_ = it_.subscribe("/usb_cam/image_raw", 1, &ImageConverter::barcode_detect, this);
     image_pub_ = it_.advertise("/image_converter/output_video", 1);
 
     cv::namedWindow(OPENCV_WINDOW);
@@ -175,6 +179,68 @@ public:
         imageMatches,cv::Scalar(255,0,0));
 
     cv::imshow(RESULT_WINDOW, imageMatches);
+    cv::waitKey(3);
+  }
+
+  void barcode_detect(const sensor_msgs::ImageConstPtr& msg){
+    cv_bridge::CvImagePtr cv_ptr;
+    try
+    {
+      cv_ptr = cv_bridge::toCvCopy(msg, sensor_msgs::image_encodings::BGR8);
+    }
+    catch (cv_bridge::Exception& e)
+    {
+      ROS_ERROR("cv_bridge exception: %s", e.what());
+      return;
+    }
+
+    cv::Mat img = cv::imread("/home/zhuyujin/Downloads/barcode.jpg");
+    // cv::Mat img = cv_ptr->image;
+    cv::Mat gray;
+    cv::cvtColor(img, gray, CV_BGR2GRAY);
+
+    cv::Mat gradX, gradY, gradient, blur, thresh;
+
+    cv::Sobel(gray, gradX, CV_32F, 1, 0, -1);
+    cv::Sobel(gray, gradY, CV_32F, 0, 1, -1);
+    cv::subtract(gradX, gradY, gradient);
+    cv::convertScaleAbs(gradient, gradient);
+
+    cv::blur(gradient, blur, cv::Size(9,9));
+
+    cv::threshold(blur, thresh, 225, 225, cv::THRESH_BINARY);
+
+    cv::Mat kernel, closed;
+
+    kernel = getStructuringElement(cv::MORPH_RECT, cv::Size(21, 7));
+    morphologyEx(thresh, closed, cv::MORPH_CLOSE, kernel);
+
+    cv::erode(closed, closed, cv::Mat(), cv::Point(-1, -1), 4);
+    cv::dilate(closed, closed, cv::Mat(), cv::Point(-1, -1), 4);
+
+    cv::vector< cv::vector<cv::Point> > contours;  
+    cv::findContours(closed, contours, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_SIMPLE);
+
+cv::imshow(OPENCV_WINDOW, closed);
+cv::waitKey(3);
+
+    if(contours.size() > 0){
+
+      sort(contours.begin(), contours.end(), sort_by_point_num);
+
+      cv::RotatedRect rect = cv::minAreaRect(cv::Mat(contours[0]));
+      cv::Rect brect = rect.boundingRect();
+
+      cv::Point2f vertices[4];
+      rect.points(vertices);
+      for(int i = 0; i < sizeof(vertices); i++){
+        cv::circle(img, vertices[i], 5, cv::Scalar(0, 0, 255), 2);
+      }
+
+      cv::rectangle(img, brect, cv::Scalar(255,0,0), 2);
+    }
+
+    cv::imshow(RESULT_WINDOW, img);
     cv::waitKey(3);
   }
 

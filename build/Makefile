@@ -254,6 +254,19 @@ gtest_main/fast:
 .PHONY : gtest_main/fast
 
 #=============================================================================
+# Target rules for targets named barcode_detect
+
+# Build rule for target.
+barcode_detect: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 barcode_detect
+.PHONY : barcode_detect
+
+# fast build rule for target.
+barcode_detect/fast:
+	$(MAKE) -f car_move/CMakeFiles/barcode_detect.dir/build.make car_move/CMakeFiles/barcode_detect.dir/build
+.PHONY : barcode_detect/fast
+
+#=============================================================================
 # Target rules for targets named basic_move
 
 # Build rule for target.
@@ -729,6 +742,7 @@ help:
 	@echo "... tests"
 	@echo "... gtest"
 	@echo "... gtest_main"
+	@echo "... barcode_detect"
 	@echo "... basic_move"
 	@echo "... geometry_msgs_generate_messages_cpp"
 	@echo "... geometry_msgs_generate_messages_lisp"

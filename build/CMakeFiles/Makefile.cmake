@@ -205,6 +205,7 @@ SET(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/tests.dir/DependInfo.cmake"
   "gtest/CMakeFiles/gtest.dir/DependInfo.cmake"
   "gtest/CMakeFiles/gtest_main.dir/DependInfo.cmake"
+  "car_move/CMakeFiles/barcode_detect.dir/DependInfo.cmake"
   "car_move/CMakeFiles/basic_move.dir/DependInfo.cmake"
   "car_move/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/DependInfo.cmake"
   "car_move/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/DependInfo.cmake"
