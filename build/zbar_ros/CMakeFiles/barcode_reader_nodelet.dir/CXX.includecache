@@ -33,6 +33,8 @@ pluginlib/class_list_macros.h
 /home/zhuyujin/ros/src/zbar_ros/src/pluginlib/class_list_macros.h
 std_msgs/String.h
 /home/zhuyujin/ros/src/zbar_ros/src/std_msgs/String.h
+sstream
+-
 
 /opt/ros/indigo/include/XmlRpcDecl.h
 ros/macros.h

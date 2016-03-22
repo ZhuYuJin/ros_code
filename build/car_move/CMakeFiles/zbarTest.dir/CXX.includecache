@@ -11,6 +11,10 @@ ros/ros.h
 /home/zhuyujin/ros/src/car_move/ros/ros.h
 std_msgs/String.h
 /home/zhuyujin/ros/src/car_move/std_msgs/String.h
+sstream
+-
+stdlib.h
+-
 
 /opt/ros/indigo/include/XmlRpcDecl.h
 ros/macros.h
